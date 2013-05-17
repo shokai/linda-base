@@ -2,11 +2,13 @@ Homu
 ====
 Home controller using [Sinatra::RocketIO::Linda](http://github.com/shokai/sinatra-rocketio-linda)
 
+* https://github.com/shokai/homu
+
 
 Clone
 -----
 
-    % git clone git://github.com/shokai/sinatra-rocketio-linda.git
+    % git clone git://github.com/shokai/homu.git
 
 
 Install Dependencies
