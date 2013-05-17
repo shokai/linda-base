@@ -8,6 +8,10 @@ helpers do
   end
 end
 
+io.on :* do |event, data, client|
+  puts "#{event} - #{data} <#{client}>"
+end
+
 get '/tuple/*' do
   @arr = params[:splat][0].split("/")
   @space_name = @arr.shift
