@@ -1,0 +1,17 @@
+!!!XHTML
+%html
+  %head
+    :javascript
+      var space_name = "#{@space}";
+      var tuple = #{@arr.to_json};
+  %body
+    %main
+      %h1= app_name
+      %p= "tuplespace : #{@space_name}"
+      %p= "tuple : #{@arr}"
+      %input{:type => :button, :id => :btn_write, :value => "write"}
+      %div#watch
+    %script{:src => "//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"}
+    %script{:src => rocketio_js}
+    %script{:src => linda_js}
+    %script{:src => "/tuple.js"}
