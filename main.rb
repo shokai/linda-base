@@ -1,4 +1,3 @@
-
 io = Sinatra::RocketIO
 linda = Sinatra::RocketIO::Linda
 
@@ -14,7 +13,7 @@ end
 
 get '/tuple/*' do
   @arr = params[:splat][0].split("/")
-  @space_name = @arr.shift
+  @space = @arr.shift
   haml :tuple
 end
 
