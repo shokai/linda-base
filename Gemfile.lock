@@ -20,7 +20,8 @@ GEM
       multi_json (~> 1.0)
       multi_xml (>= 0.5.2)
     json (1.8.0)
-    linda (0.0.2)
+    linda (0.0.3)
+      json
     multi_json (1.7.3)
     multi_xml (0.5.3)
     rack (1.5.2)
@@ -54,7 +55,7 @@ GEM
       sinatra
       sinatra-cometio (>= 0.5.3)
       sinatra-websocketio (>= 0.2.6)
-    sinatra-rocketio-linda (0.0.4)
+    sinatra-rocketio-linda (0.0.5)
       event_emitter
       linda
       sinatra
