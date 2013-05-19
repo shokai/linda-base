@@ -11,8 +11,8 @@ io.on :* do |event, data, client|
   puts "#{event} - #{data} <#{client}>"
 end
 
-get '/tuple/*' do
-  @arr = params[:splat][0].split("/")
+get %r{^/([\w/]+)$} do |arr|
+  @arr = arr.split("/")
   @space = @arr.shift
   haml :tuple
 end
