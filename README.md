@@ -1,14 +1,14 @@
-Homu
-====
+Linda-Base
+==========
 Home controller using [Sinatra::RocketIO::Linda](http://github.com/shokai/sinatra-rocketio-linda)
 
-* https://github.com/shokai/homu
+* https://github.com/shokai/linda-base
 
 
 Clone
 -----
 
-    % git clone git://github.com/shokai/homu.git
+    % git clone git://github.com/shokai/linda-base.git
 
 
 Install Dependencies

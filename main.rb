@@ -3,7 +3,7 @@ linda = Sinatra::RocketIO::Linda
 
 helpers do
   def app_name
-    "Homu"
+    "linda-base"
   end
 end
 
