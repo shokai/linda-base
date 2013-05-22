@@ -7,8 +7,8 @@ helpers do
   end
 end
 
-io.on :* do |event, data, client|
-  puts "#{event} - #{data} <#{client}>"
+linda.on :* do |event, tuple, client|
+  puts "#{event} #{tuple.tuple} in <#{tuple.space}> by <#{client}>"
 end
 
 get %r{^/([\w/]+)$} do |arr|
