@@ -1,0 +1,14 @@
+!!!XHTML
+%html
+  %head
+    %meta{"http-equiv" => "Content-Type", :content => "text/html", :charset => "UTF-8"}
+    %title linda-base
+    != yield_content :html_head
+  %body
+    %div#content
+      != yield
+      %hr
+      %div#footer
+        - url = "https://github.com/shokai/linda-base"
+        %a{:href => url}= url
+    != yield_content :html_foot
