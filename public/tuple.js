@@ -4,8 +4,9 @@ var ts = new linda.TupleSpace(space_name);
 var log = function(msg){
   console.log(msg);
   if(typeof msg !== "string") msg = JSON.stringify(msg);
-  var now = new Date();
-  $("#watch").prepend( $("<p>").text(msg).append(" - "+now.toString()) );
+  var watch_msg = $("<p>").text(msg).append(" - "+ new Date().toString());
+  watch_msg.fadeIn(600);
+  $("#watch").prepend(watch_msg);
 };
 
 linda.io.on("connect", function(){
