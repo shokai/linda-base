@@ -31,6 +31,16 @@ a, a:visited, a:hover {
   color : #4B7EC2;
 }
 
+input {
+  font-size : 100%;
+}
+
+#watch {
+  @include content-box;
+  height : 400px;
+  overflow : scroll;
+}
+
 #footer {
   text-align : right;
 }
