@@ -8,9 +8,10 @@
   %script{:src => linda_js}
   %script{:src => "/tuple.js"}
 
-%h1= app_name
+- content_for :header do
+  %h1= "#{@space}/#{@arr}"
+
 %div#main
-  %p= "tuplespace : #{@space}"
-  %p= "tuple : #{@arr}"
-  %input{:type => :button, :id => :btn_write, :value => "write"}
+  %input{:type => :button, :id => :btn_write, :value => "write tuple : #{@arr}"}
+  %h2 watch
   %div#watch

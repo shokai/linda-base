@@ -1,0 +1,39 @@
+
+$font_black : #222;
+$font_white : #FFF;
+
+@mixin content-box {
+  div {
+    margin : 10px;
+    font-size : 95%;
+  }
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  @include content-box;
+  background-color : #2F4DA0;
+  color : $font_black;
+  height: 100%;
+}
+
+h1 {
+  color : $font_white;
+}
+
+a, a:visited, a:hover {
+  color : #4B7EC2;
+}
+
+#content {
+  @include content-box;
+  background-color : #FFFFFF;
+  padding : 10px;
+}
+
+#footer {
+  text-align : right;
+}

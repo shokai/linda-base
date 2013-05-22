@@ -1,1 +1,29 @@
-%h1= app_name
+- content_for :header do
+  %h1= app_name
+
+%h2 #{app_name}とは
+%p
+  %a{:href => "http://ja.wikipedia.org/wiki/Linda"} Linda
+  による分散並列コンピューティングのための基地です。
+  %a{:href => "https://github.com/shokai/sinatra-rocketio"} RocketIO
+  を使っています。
+%p
+  主に家具コンピューティングの分野において、センサーやアクチュエータを持った沢山のデバイスたちと、Webサービスやスマートフォン等のクライアントをどう連携させるか？という課題の解決のために作っています。
+%p
+  ソースコードは全て
+  %a{:href => "https://github.com/shokai/linda-base"} githubで公開されています。
+
+%h2 Lindaとは
+%p Lindaは分散並列コンピューティングのための最小セットです。
+%p メモリ空間(TupleSpace)を全プロセス間で共有し、オブジェクト(Tuple)を共有します。共有されたTupleに対してはたった4種類の操作(read/write/take/watch)しか行えませんが、それだけでクライアント・ワーカーモデルやジョブキュー、セマフォといったメジャーな分散並列処理が記述できてしまう強力な言語です。
+%p このWebサービス(#{app_name})にはRubyとJavaScriptがクライアントとして接続でき、両言語ともほぼ同じ記述でコードディングできます。
+
+
+%h2 使い方
+%p #{app_root}/(TupleSpace)/(Tuple) でタプルの読み書きができます
+- url = "#{app_root}/delta/door/open"
+%p
+  %h3 例
+  %p
+    %a{:href => url}= url
+    \- タプル空間"delta"に、タプル["door", "open"]を書き込みます

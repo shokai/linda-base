@@ -3,12 +3,16 @@
   %head
     %meta{"http-equiv" => "Content-Type", :content => "text/html", :charset => "UTF-8"}
     %title linda-base
+    %link{:rel => :stylesheet, :href => "/style.css"}
     != yield_content :html_head
   %body
+    %div#header
+      != yield_content :header
     %div#content
       != yield
       %hr
       %div#footer
+        != yield_content :footer
         - url = "https://github.com/shokai/linda-base"
         %a{:href => url}= url
     != yield_content :html_foot
