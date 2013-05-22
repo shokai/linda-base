@@ -1,12 +1,9 @@
-
 $font_black : #222;
 $font_white : #FFF;
 
 @mixin content-box {
-  div {
-    margin : 10px;
-    font-size : 95%;
-  }
+  margin : 10px;
+  font-size : 98%;
 }
 
 html {
@@ -20,18 +17,18 @@ body {
   height: 100%;
 }
 
+#content {
+  @include content-box;
+  background-color : #FFFFFF;
+  padding : 10px;
+}
+
 h1 {
   color : $font_white;
 }
 
 a, a:visited, a:hover {
   color : #4B7EC2;
-}
-
-#content {
-  @include content-box;
-  background-color : #FFFFFF;
-  padding : 10px;
 }
 
 #footer {
