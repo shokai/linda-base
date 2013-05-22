@@ -21,9 +21,16 @@
 
 %h2 使い方
 %p #{app_root}/(TupleSpace)/(Tuple) でタプルの読み書きができます
-- url = "#{app_root}/delta/door/open"
 %p
   %h3 例
-  %p
-    %a{:href => url}= url
-    \- タプル空間"delta"に、タプル["door", "open"]を書き込みます
+  %ul
+    %li
+      - url = "#{app_root}/delta/door/open"
+      %a{:href => url}= url
+      %br
+      タプル空間"delta"に、タプル["door", "open"]を書き込みます
+    %li
+      - url = "https://github.com/shokai/linda-door-phidgets-servo"
+      %a{:href => url}= url
+      %br
+      タプル空間"delta"から["door", "open"]をtakeしてサーボモータで鍵を開けて、["door", "open", "success"]を書き込むworkerの例です
