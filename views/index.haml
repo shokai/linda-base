@@ -34,3 +34,13 @@
       %a{:href => url}= url
       %br
       タプル空間"delta"から["door", "open"]をtakeしてサーボモータで鍵を開けて、["door", "open", "success"]を書き込むworkerの例です
+    %li
+      - url = "#{app_root}/delta/say/hello"
+      %a{:href => url}= url
+      %br
+      タプル空間"delta"に、タプル["say", "hello"]を書き込みます
+    %li
+      - url = "https://github.com/shokai/linda-mac-say"
+      %a{:href => url}= url
+      %br
+      タプル空間"delta"から["say", "セリフ"]をtakeしてMacのsayコマンドで喋らせ、["door", "セリフ", "success"]を書き込むworkerの例です
