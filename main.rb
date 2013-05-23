@@ -11,6 +11,14 @@ helpers do
   end
 end
 
+io.on :connect do |client|
+  puts "new client - #{client}"
+end
+
+io.on :disconnect do |client|
+  puts "disconnect client - #{client}"
+end
+
 linda.on :* do |event, tuple, client|
   puts "#{event} #{tuple.tuple} in <#{tuple.space}> by <#{client}>"
 end
