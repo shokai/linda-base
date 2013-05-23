@@ -13,7 +13,9 @@ linda.io.on("connect", function(){
   ts.watch(tuple, function(tuple){
     log(tuple);
   });
+});
 
+$(function(){
   $("#btn_write").click(function(e){
     ts.write(tuple);
   });
