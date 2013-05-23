@@ -5,11 +5,15 @@
 
 - content_for :html_foot do
   %script{:src => "//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"}
+  %script{:src => "/jquery.editable.min.js"}
   %script{:src => linda_js}
   %script{:src => "/tuple.js"}
 
 - content_for :header do
-  %h1= "#{@space}/#{@arr}"
+  %h1
+    %span#space= @space
+    \/
+    %span#tuple= @arr
 
 %div#main
   %h2 write
