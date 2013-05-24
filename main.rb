@@ -40,6 +40,7 @@ end
 post %r{^/([^/]+)\.write$} do |space|
   tuple = JSON.parse params[:tuple] rescue halt 400, "invalid tuple"
   halt 400, "invalid space name" if !space or space.empty?
-  puts "write #{tuple} into \"#{space}\""
+  response["Access-Control-Allow-Origin"] = "*"
   linda[space].write tuple
+  "linda[#{space}].write #{tuple}"
 end
