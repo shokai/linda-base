@@ -17,6 +17,10 @@
 
 %div#main
   %h2 write
-  %input{:type => :button, :id => :btn_write, :value => "#{@arr}"}
+  %div
+    %input{:type => :button, :id => :btn_write, :value => "#{@arr}"}
+    %p
+      - query = "tuple=#{@arr.to_json}"
+      \% curl -d '#{query}' #{app_root}/#{@space}.write
   %h2 watch
   %div#watch

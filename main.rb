@@ -37,3 +37,9 @@ get '/*' do |path|
   haml :tuple
 end
 
+post %r{^/([^/]+)\.write$} do |space|
+  tuple = JSON.parse params[:tuple] rescue halt 400, "invalid tuple"
+  halt 400, "invalid space name" if !space or space.empty?
+  puts "write #{tuple} into \"#{space}\""
+  linda[space].write tuple
+end
