@@ -22,6 +22,7 @@ GEM
     json (1.8.0)
     linda (0.0.3)
       json
+    logger (1.2.8)
     multi_json (1.7.3)
     multi_xml (0.5.3)
     rack (1.5.2)
@@ -86,6 +87,7 @@ PLATFORMS
 DEPENDENCIES
   foreman
   haml
+  logger
   sass
   sinatra-contrib
   sinatra-rocketio
