@@ -55,13 +55,13 @@ GEM
       sinatra
       sinatra-cometio (>= 0.5.4)
       sinatra-websocketio (>= 0.2.9)
-    sinatra-rocketio-linda (0.0.6)
+    sinatra-rocketio-linda (0.0.7)
       event_emitter
       hashie
       linda
       sinatra
       sinatra-rocketio
-    sinatra-websocketio (0.2.9)
+    sinatra-websocketio (0.3.0)
       em-websocket (>= 0.5.0)
       event_emitter (>= 0.2.4)
       eventmachine (>= 1.0.0)
