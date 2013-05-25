@@ -1,46 +1,58 @@
 - content_for :header do
   %h1= app_name
 
-%h2 #{app_name}とは
+%h2= app_name
 %p
-  %a{:href => "http://ja.wikipedia.org/wiki/Linda"} Linda
-  による分散並列コンピューティングのための基地です。
+  is a base for Concurrent/Distributed Computing with
+  %a{:href => "http://en.wikipedia.org/wiki/Linda_(coordination_language)"} Linda
+  and
   %a{:href => "https://github.com/shokai/sinatra-rocketio"} RocketIO
-  を使っています。
-%p
-  主に家具コンピューティングの分野において、センサーやアクチュエータを持った沢山のデバイスたちと、Webサービスやスマートフォン等のクライアントをどう連携させるか？という課題の解決のために作っています。
-%p
-  ソースコードは全て
-  %a{:href => "https://github.com/shokai/linda-base"} githubで公開されています。
+  \.
+%p #{app_name} provides library for Ruby and JavaScript clients.
 
-%h2 Lindaとは
-%p Lindaは分散並列コンピューティングのための最小セットです。
-%p メモリ空間(TupleSpace)を全プロセス間で共有し、オブジェクト(Tuple)を共有します。共有されたTupleに対してはたった4種類の操作(read/write/take/watch)しか行えませんが、それだけでクライアント・ワーカーモデルやジョブキュー、セマフォといったメジャーな分散並列処理が記述できてしまう強力な言語です。
-%p このWebサービス(#{app_name})にはRubyとJavaScriptがクライアントとして接続でき、両言語ともほぼ同じ記述でコードディングできます。
-
-
-%h2 使い方
-%p #{app_root}/(TupleSpace)/(Tuple) でタプルの読み書きができます
+%h2 Usage
+%p read/write Tuples at
+%p #{app_root}/(TupleSpace)/(Tuple)
 %p
-  %h3 例
+  %h3 Examples
   %ul
     %li
-      - url = "#{app_root}/delta/door/open"
+      - url = "#{app_root}/myhome/say/hello"
       %a{:href => url}= url
       %br
-      タプル空間"delta"に、タプル["door", "open"]を書き込みます
-    %li
-      - url = "https://github.com/shokai/linda-door-phidgets-servo"
-      %a{:href => url}= url
-      %br
-      タプル空間"delta"から["door", "open"]をtakeしてサーボモータで鍵を開けて、["door", "open", "success"]を書き込むworkerの例です
-    %li
-      - url = "#{app_root}/delta/say/hello"
-      %a{:href => url}= url
-      %br
-      タプル空間"delta"に、タプル["say", "hello"]を書き込みます
+      Write a Tuple ["say", "hello"] into TupleSpace "myhome".
     %li
       - url = "https://github.com/shokai/linda-mac-say"
       %a{:href => url}= url
       %br
-      タプル空間"delta"から["say", "セリフ"]をtakeしてMacのsayコマンドで喋らせ、["door", "セリフ", "success"]を書き込むworkerの例です
+      Watch ["say", String] and execute 'say' command in Mac. Then write ["door", String, "success"].
+    %li
+      - url = "#{app_root}/myhome/sensor"
+      %a{:href => url}= url
+      %br
+      You can watch ["sensor"] values in TupleSpace "myhome".
+    %li
+      - url = "https://github.com/shokai/linda-arduino-sensor"
+      %a{:href => url}= url
+      %br
+      Read Arduino's sensor values and write Tuples ["sensor", "light", 120] and ["sensor", "temperature", 25].
+    %li
+      - url = "https://github.com/shokai/linda-temperature-alert"
+      %a{:href => url}= url
+      %br
+      Alert temperature. Read a Tuple ["sensor", "temperature"] and write a Tuple ["say", "current temperature is 25"] or ["say", "current temperature is 8, too cold."] .
+    %li
+      - url = "#{app_root}/myhome/door/open"
+      %a{:href => url}= url
+      %br
+      Write a Tuple ["door", "open"] into TupleSpace "myhome".
+    %li
+      - url = "https://github.com/shokai/linda-door-phidgets-servo"
+      %a{:href => url}= url
+      %br
+      Read a Tuple ["door", "open"] and open door-key with Phidgets Servo-motor. Then write a Tuple ["door", "open", "success"].
+    %li
+      - url = "https://github.com/shokai/linda-door-open-goldfish"
+      %a{:href => url}= url
+      %br
+      Write a Tuple ["door", "open"] into TupleSpace with Ajax POST on GoldFish.
