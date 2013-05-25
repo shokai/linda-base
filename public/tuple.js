@@ -5,6 +5,11 @@ linda.io.on("connect", function(){
   ts.watch(tuple, function(tuple){
     log(tuple);
   });
+  $("#status").text("connect <"+linda.io.type+">");
+});
+
+linda.io.on("disconnect", function(){
+  $("#status").text("disconnect");
 });
 
 $(function(){
