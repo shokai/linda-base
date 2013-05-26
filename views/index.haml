@@ -15,6 +15,7 @@
 %p #{app_root}/(TupleSpace)/(Tuple)
 %p
   %h3 Examples
+  %h4 Text to audible speech
   %ul
     %li
       - url = "#{app_root}/myhome/say/hello"
@@ -26,6 +27,8 @@
       %a{:href => url}= url
       %br
       Watch ["say", String] and execute 'say' command in Mac. Then write ["door", String, "success"].
+  %h4 Report Arduino's sensor values
+  %ul
     %li
       - url = "#{app_root}/myhome/sensor"
       %a{:href => url}= url
@@ -36,11 +39,15 @@
       %a{:href => url}= url
       %br
       Read Arduino's sensor values and write Tuples ["sensor", "light", 120] and ["sensor", "temperature", 25].
+  %h4 Alert Temperature
+  %ul
     %li
       - url = "https://github.com/shokai/linda-temperature-alert"
       %a{:href => url}= url
       %br
       Alert temperature. Read a Tuple ["sensor", "temperature"] and write a Tuple ["say", "current temperature is 25"] or ["say", "current temperature is 8, too cold."] .
+  %h4 Open door-lock
+  %ul
     %li
       - url = "#{app_root}/myhome/door/open"
       %a{:href => url}= url
@@ -50,7 +57,7 @@
       - url = "https://github.com/shokai/linda-door-phidgets-servo"
       %a{:href => url}= url
       %br
-      Read a Tuple ["door", "open"] and open door-key with Phidgets Servo-motor. Then write a Tuple ["door", "open", "success"].
+      Read a Tuple ["door", "open"] and open the door-lock with Phidgets Servo-motor. Then write a Tuple ["door", "open", "success"].
     %li
       - url = "https://github.com/shokai/linda-door-open-goldfish"
       %a{:href => url}= url
