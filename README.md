@@ -28,3 +28,7 @@ set HTTP port 5000
 set WebSocket port 5001
 
     % WS_PORT=5001 bundle exec rackup config.ru -p 5000
+
+disable WebSocket
+
+    % WEBSOCKET=false bundle exec rackup config.ru -p 5000
