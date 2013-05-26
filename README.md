@@ -5,6 +5,13 @@ Home controller using [Sinatra::RocketIO::Linda](http://github.com/shokai/sinatr
 * https://github.com/shokai/linda-base
 
 
+Demo
+----
+
+* http://linda.shokai.org
+* http://linda-base.herokuapp.com
+
+
 Clone
 -----
 
@@ -32,3 +39,11 @@ set WebSocket port 5001
 disable WebSocket
 
     % WEBSOCKET=false bundle exec rackup config.ru -p 5000
+
+
+Deploy on Heroku
+----------------
+
+    % heroku create --stack cedar linda-base
+    % heroku config:set WEBSOCKET=false
+    % git push heroku master
