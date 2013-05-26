@@ -63,3 +63,15 @@
       %a{:href => url}= url
       %br
       Write a Tuple ["door", "open"] into TupleSpace with Ajax POST on GoldFish.
+  %h4 Twitter
+  %ul
+    %li
+      - url = "#{app_root}/myhome/twitter/tweet/hello"
+      %a{:href => url}= url
+      %br
+      Write a Tuple ["twitter", "tweet", "hello"] into TupleSpace "myhome".
+    %li
+      - url = "https://github.com/shokai/linda-twitter"
+      %a{:href => url}= url
+      %br
+      Watch Tuples ["twitter", "tweet", String] and Tweet. Then write a Tuple ["twitter", "tweet", "success"] or ["twitter", "tweet", "fail"].
