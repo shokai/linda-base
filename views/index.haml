@@ -45,7 +45,16 @@
       - url = "https://github.com/shokai/linda-temperature-alert"
       %a{:href => url}= url
       %br
-      Alert temperature. Read a Tuple ["sensor", "temperature"] and write a Tuple ["say", "current temperature is 25"] or ["say", "current temperature is 8, too cold."] .
+      Read a Tuple ["sensor", "temperature"] and write a Tuple ["say", "current temperature is 25"] or ["say", "current temperature is 8, too cold."] .
+  %h4 display light sensor value from Arduino
+  %ul
+    %li
+      - url = "https://github.com/shokai/linda-light-sensor-webpage"
+      %a{:href => url}= url
+      %br
+      Read a Tuple ["sensor", "light"] with
+      %a{:href => "https://github.com/shokai/sinatra-rocketio-linda#javascript-lib-for-browser"} Linda JS Lib
+      and display it on webpage.
   %h4 Open door-lock
   %ul
     %li
