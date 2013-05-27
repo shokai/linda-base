@@ -3,6 +3,7 @@ require 'bundler/setup'
 require 'sinatra'
 $stdout.sync = true if development?
 require 'sinatra/reloader' if development?
+
 require 'logger'
 if development?
   $logger = Logger.new $stdout
@@ -11,6 +12,7 @@ else
   $logger = Logger.new $stdout
   $logger.level = Logger::INFO
 end
+
 require 'sinatra/content_for'
 require 'sinatra/rocketio'
 require 'sinatra/rocketio/linda'
@@ -19,5 +21,6 @@ require 'sass'
 require File.expand_path 'main', File.dirname(__FILE__)
 
 set :haml, :escape_html => true
+set :cometio, :allow_crossdomain => true
 
 run Sinatra::Application
