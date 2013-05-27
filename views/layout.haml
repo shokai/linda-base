@@ -13,6 +13,8 @@
       %hr
       %div#footer
         != yield_content :footer
+        Sinatra::RocketIO::Linda v#{Sinatra::RocketIO::Linda::VERSION}
+        |
         - url = "https://github.com/shokai/linda-base"
         %a{:href => url}= url
     != yield_content :html_foot
