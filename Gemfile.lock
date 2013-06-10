@@ -57,7 +57,7 @@ GEM
       sinatra
       sinatra-cometio (>= 0.5.6)
       sinatra-websocketio (>= 0.3.0)
-    sinatra-rocketio-linda (0.1.2)
+    sinatra-rocketio-linda (0.2.0)
       args_parser
       event_emitter
       hashie
