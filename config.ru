@@ -18,6 +18,11 @@ require 'sinatra/rocketio'
 require 'sinatra/rocketio/linda'
 require 'haml'
 require 'sass'
+require 'httparty'
+require 'uri'
+require 'octokit'
+require File.expand_path 'helper', File.dirname(__FILE__)
+require File.expand_path 'auth', File.dirname(__FILE__)
 require File.expand_path 'main', File.dirname(__FILE__)
 
 set :haml, :escape_html => true

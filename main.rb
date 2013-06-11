@@ -1,16 +1,6 @@
 io = Sinatra::RocketIO
 linda = Sinatra::RocketIO::Linda
 
-helpers do
-  def app_name
-    "linda-base"
-  end
-
-  def app_root
-    "#{env['rack.url_scheme']}://#{env['HTTP_HOST']}"
-  end
-end
-
 io.on :connect do |client|
   $logger.info "new client - #{client}"
 end
