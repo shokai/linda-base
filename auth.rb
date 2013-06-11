@@ -2,6 +2,7 @@ require 'httparty'
 require 'octokit'
 require 'digest/md5'
 require 'hashie'
+require 'uri'
 
 helpers do
   def create_session_id
@@ -33,7 +34,7 @@ get '/auth' do
     :client_id => ENV["GITHUB_APP_ID"],
     :redirect_uri => "#{app_root}/auth.callback",
   }.map{|k,v|
-    "#{k}=#{URI.encode v}"
+    "#{k}=#{::URI.encode v}"
   }.join("&")
   redirect "https://github.com/login/oauth/authorize?#{query}"
 end
