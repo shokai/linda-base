@@ -6,16 +6,19 @@
     %link{:rel => :stylesheet, :href => "/style.css"}
     != yield_content :html_head
   %body
-    %div#toolbar
-      %p
-        - unless @user
-          %a{:href => "/auth"} auth
-        - else
-          %img{:src => @user.icon}
-          %a{:href => "/logout"} logout
-
     %div#header
       != yield_content :header
+    %div#toolbar
+      - unless @user
+        %span.item
+          %a{:href => "/auth"} login
+      - else
+        %span.item
+          %a{:href => "https://github.com/#{@user.name}"}
+            %img{:src => @user.icon}
+            #{@user.name}
+        %span.item
+          %a{:href => "/logout"} logout
     %div#content
       != yield
       %hr

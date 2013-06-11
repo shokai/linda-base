@@ -2,8 +2,8 @@ $font_black : #222;
 $font_white : #FFF;
 
 @mixin content-box {
-  margin : 10px;
-  font-size : 98%;
+  margin: 10px;
+  font: 12pt  "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 html {
@@ -12,39 +12,62 @@ html {
 
 body {
   @include content-box;
-  background-color : #2F4DA0;
+  background-color: #2F4DA0;
   color : $font_black;
   height: 100%;
 }
 
-#content {
+#header {
+  float: left;
+}
+
+#toolbar {
+  float: right;
   @include content-box;
-  background-color : #FFFFFF;
-  padding : 10px;
+  height: 24px;
+  text-align: right;
+}
+
+#toolbar span.item {
+  height: 36px;
+  padding: 12px 5px 2px 5px;
+  background-color: #FFFFFF;
+  margin-left: 5px;
+}
+
+#toolbar img {
+  height: 100%;
+}
+
+#content {
+  clear: both;
+  @include content-box;
+  background-color: #FFFFFF;
+  padding: 10px;
 }
 
 h1 {
-  color : $font_white;
+  color: $font_white;
 }
 
 a, a:visited, a:hover {
-  color : #4B7EC2;
+  color: #4B7EC2;
 }
 
 input {
-  font-size : 100%;
+  font-size: 100%;
 }
 
 #watch {
   @include content-box;
-  height : 400px;
-  overflow : scroll;
+  height: 400px;
+  overflow: scroll;
 }
 
 #status {
-  text-align : right;
+  text-align: right;
 }
 
 #footer {
-  text-align : right;
+  text-align: right;
 }

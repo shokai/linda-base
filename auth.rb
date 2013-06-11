@@ -63,7 +63,7 @@ get '/auth.callback' do
   session_id = create_session_id
   Cache["auth"].set session_id, {
     :oauth_token => token,
-    :user => user.login,
+    :name => user.login,
     :id => user.id,
     :icon => user.avatar_url
   }
