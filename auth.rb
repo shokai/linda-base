@@ -30,9 +30,12 @@ end
 
 get '/auth' do
   logout
+  state = create_session_id
+  Cache["auth_state"].set state, {:state => state}, {:expire => 60*60}
   query = {
     :client_id => ENV["GITHUB_APP_ID"],
     :redirect_uri => "#{app_root}/auth.callback",
+    :state => state
   }.map{|k,v|
     "#{k}=#{::URI.encode v}"
   }.join("&")
@@ -42,6 +45,11 @@ end
 get '/auth.callback' do
   code = params["code"]
   halt 400, "bad request (code)" if code.to_s.empty?
+  state = params["state"]
+  if state.to_s.empty? or !Cache["auth_state"].get state
+    halt 400, "bad request (state)"
+  end
+  Cache["auth_state"].delete state
   query = {
     :body => {
       :client_id => ENV["GITHUB_APP_ID"],

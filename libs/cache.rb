@@ -22,7 +22,7 @@ class Cache
   class Client
     attr_reader :name
 
-    def initialize(name="default")
+    def initialize(name)
       @name = "linda_base_#{name}_"
     end
 
