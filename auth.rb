@@ -1,7 +1,26 @@
 require 'httparty'
 require 'octokit'
+require 'digest/md5'
+require 'hashie'
 
-auth_cache = Cache.new "auth"
+helpers do
+  def create_session_id
+    Digest::MD5.hexdigest "#{rand 10000} #{Time.now.to_i} #{Time.now.usec}"
+  end
+
+  def user_info
+    return nil unless session[:id]
+    u = Cache["auth"].get session[:id]
+    return nil unless u
+    Hashie::Mash.new u
+  end
+
+  def logout
+    return unless session[:id]
+    Cache["auth"].delete session[:id]
+    session[:id] = nil
+  end
+end
 
 get '/logout' do
   logout
@@ -37,16 +56,17 @@ get '/auth.callback' do
   begin
     token = JSON.parse(res.body)["access_token"]
     client = Octokit::Client.new :oauth_token => token
-    github_user = client.user
+    user = client.user
   rescue => e
     halt 500, "github auth error"
   end
-  session[:id] = session_id =  create_session_id
-  auth_cache.set session_id, {
+  session_id = create_session_id
+  Cache["auth"].set session_id, {
     :oauth_token => token,
-    :user => github_user.login,
-    :id => github_user.id,
-    :icon => github_user.avatar_url
+    :user => user.login,
+    :id => user.id,
+    :icon => user.avatar_url
   }
+  session[:id] = session_id
   redirect '/'
 end
