@@ -27,7 +27,7 @@ require File.expand_path 'main', File.dirname(__FILE__)
 set :haml, :escape_html => true
 set :cometio, :allow_crossdomain => true
 enable :sessions
-set :session_secret, ENV["SESSION_SECRET"]
+set :session_secret, (ENV["SESSION_SECRET"] || "kazusuke-tabetai")
 
 case RUBY_PLATFORM
 when /linux/i then EM.epoll
