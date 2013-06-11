@@ -14,6 +14,7 @@ linda.on :* do |event, tuple, client|
 end
 
 get '/' do
+  @user = user_info
   haml :index
 end
 
@@ -22,6 +23,7 @@ get '/*.css' do |path|
 end
 
 get '/*' do |path|
+  @user = user_info
   @arr = path.split("/")
   @space = @arr.shift
   haml :tuple

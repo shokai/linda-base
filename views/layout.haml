@@ -6,6 +6,14 @@
     %link{:rel => :stylesheet, :href => "/style.css"}
     != yield_content :html_head
   %body
+    %div#toolbar
+      %p
+        - unless @user
+          %a{:href => "/auth"} auth
+        - else
+          %img{:src => @user.icon}
+          %a{:href => "/logout"} logout
+
     %div#header
       != yield_content :header
     %div#content

@@ -25,6 +25,19 @@ Install Dependencies
     % bundle install
 
 
+Config
+------
+
+[Register new Application](https://github.com/settings/applications) on GitHub
+
+    % export GITHUB_APP_ID=abcd1234asdf
+    % export GITHUB_APP_SECRET=asdf135hujikohujiko71sdfcxvoip
+
+session
+
+    % export SESSION_SECRET=foobar1234
+
+
 Run
 ---
 
