@@ -44,10 +44,10 @@ end
 
 get '/auth.callback' do
   code = params["code"]
-  halt 400, "bad request (code)" if code.to_s.empty?
+  error_and_back "bad request (code)" if code.to_s.empty?
   state = params["state"]
   if state.to_s.empty? or !Cache["auth_state"].get state
-    halt 400, "bad request (state)"
+    error_and_back "bad request (state)"
   end
   Cache["auth_state"].delete state
   query = {
@@ -61,13 +61,13 @@ get '/auth.callback' do
     }
   }
   res = HTTParty.post("https://github.com/login/oauth/access_token", query)
-  halt 500, "github auth error" unless res.code == 200
+  error_and_back "github auth error" unless res.code == 200
   begin
     token = JSON.parse(res.body)["access_token"]
     client = Octokit::Client.new :oauth_token => token
     user = client.user
   rescue => e
-    halt 500, "github auth error"
+    error_and_back "github auth error"
   end
   session_id = create_session_id
   Cache["auth"].set session_id, {
