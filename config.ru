@@ -2,15 +2,14 @@ require 'rubygems'
 require 'bundler/setup'
 require 'rack'
 require 'sinatra'
-$stdout.sync = true if development?
-
 require 'logger'
+$logger = Logger.new $stdout
 if development?
-  $logger = Logger.new $stdout
-  require 'sinatra/reloader'
-else
-  $logger = Logger.new $stdout
+  $stdout.sync = true
   $logger.level = Logger::INFO
+  require 'sinatra/reloader'
+elsif production?
+  $logger.level = Logger::WARN
 end
 
 require 'sinatra/content_for'
@@ -19,20 +18,21 @@ require 'sinatra/rocketio/linda'
 require 'haml'
 require 'sass'
 require 'json'
-require File.expand_path 'libs/cache', File.dirname(__FILE__)
-require File.expand_path 'helper', File.dirname(__FILE__)
-require File.expand_path 'auth', File.dirname(__FILE__)
-require File.expand_path 'main', File.dirname(__FILE__)
+$:.unshift File.dirname(__FILE__)
+require 'libs/cache'
+require 'helpers/helper'
+require 'controllers/auth'
+require 'controllers/main'
 
 set :haml, :escape_html => true
 set :cometio, :allow_crossdomain => true
 enable :sessions
-set :session_secret, (ENV["SESSION_SECRET"] || "kazusuke-tabetai")
+set :session_secret, (ENV["SESSION_SECRET"] || "yakiniku-kazusuke-forumon")
 
 case RUBY_PLATFORM
 when /linux/i then EM.epoll
 when /bsd/i then EM.kqueue
 end
-EM.set_descriptor_table_size 15000
+EM.set_descriptor_table_size 20000
 
 run Sinatra::Application
