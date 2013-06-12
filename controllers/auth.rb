@@ -6,7 +6,7 @@ require 'uri'
 
 helpers do
   def create_session_id
-    Digest::MD5.hexdigest "#{rand 10000} #{Time.now.to_i} #{Time.now.usec}"
+    Digest::MD5.hexdigest "#{rand} #{Time.now.to_i} #{Time.now.usec}"
   end
 
   def user_info
