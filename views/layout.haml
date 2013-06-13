@@ -6,8 +6,6 @@
     %link{:rel => :stylesheet, :href => "/style.css"}
     != yield_content :html_head
   %body
-    %div#header
-      != yield_content :header
     %div#toolbar
       - unless @user
         %span.item
@@ -19,6 +17,8 @@
             #{@user.name}
         %span.item
           %a{:href => "/logout"} logout
+    %div#header
+      != yield_content :header
     %div#content
       != yield
       %hr
