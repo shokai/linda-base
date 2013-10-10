@@ -31,7 +31,7 @@ GEM
     multi_json (1.8.1)
     multi_xml (0.5.5)
     multipart-post (1.2.0)
-    octokit (2.3.1)
+    octokit (2.4.0)
       sawyer (~> 0.5.1)
     rack (1.5.2)
     rack-protection (1.5.0)
@@ -67,7 +67,7 @@ GEM
       sinatra
       sinatra-cometio (>= 0.5.9)
       sinatra-websocketio (>= 0.4.0)
-    sinatra-rocketio-linda (1.0.0)
+    sinatra-rocketio-linda (1.0.1)
       args_parser
       event_emitter
       hashie
