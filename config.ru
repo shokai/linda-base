@@ -20,9 +20,11 @@ require 'sass'
 require 'json'
 $:.unshift File.dirname(__FILE__)
 require 'libs/cache'
+require 'libs/code_runner'
 require 'helpers/helper'
 require 'controllers/auth'
 require 'controllers/main'
+require 'controllers/run_code'
 
 set :haml, :escape_html => true
 set :cometio, :allow_crossdomain => true
