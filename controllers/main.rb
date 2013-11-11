@@ -10,7 +10,7 @@ io.on :disconnect do |client|
 end
 
 linda.on :* do |event, tuple, client|
-  $logger.info "#{event} #{tuple.tuple} in <#{tuple.space}> by <#{client}>"
+  $logger.info "#{event} #{tuple.tuple} in <#{tuple.space}> by <#{client}>" rescue next
 end
 
 get '/' do
